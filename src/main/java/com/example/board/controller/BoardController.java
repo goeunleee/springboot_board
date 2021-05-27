@@ -43,7 +43,8 @@ public class BoardController {
 		int postno = board.getBno();
 	    System.out.println(postno+"번호 게시글 상세페이지");
 	    
-		CommentVo comment = commentService.getCommentByBoardNo(postno);
+	   // System.out.println(commentService.getCommentByBoardNo(postno));
+		//CommentVo comment = commentService.getCommentByBoardNo(postno);
 		//model.addAttribute("comment",comment);
 		
 		
