@@ -1,17 +1,20 @@
 package com.example.board.service;
 
-import java.util.List;
+import com.example.board.repository.*;
+import com.example.board.vo.*;
+import org.springframework.stereotype.Service;
 
-import com.example.board.vo.CommentVo;
-import com.example.board.repository.CommentDao;
-
+@Service
 public class CommentService {
-	
-	private CommentDao commentDao;
-	
-	public List<CommentVo> getCommentList(int bno){
-		return commentDao.selectCommentList(bno); 
-		
-	}
 
+	private CommentDao commentDao;
+    
+    public  CommentVo getCommentByBoardNo(int bno) {
+
+        CommentVo commentVo = commentDao.selectCommentByBoardNo(bno);
+
+        return commentVo;
+    }
+    
+    
 }

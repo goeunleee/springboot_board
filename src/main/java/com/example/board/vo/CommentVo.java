@@ -3,7 +3,7 @@ package com.example.board.vo;
 public class CommentVo {
 	
 	private int idx;
-	private int board_idx;
+	private int bno;
 	private String content;
 	private String writer;
 	
@@ -14,11 +14,11 @@ public class CommentVo {
 	public void setIdx(int idx) {
 		this.idx = idx;
 	}
-	public int getBoard_idx() {
-		return board_idx;
+	public int getBno() {
+		return bno;
 	}
-	public void setBoard_idx(int board_idx) {
-		this.board_idx = board_idx;
+	public void setBno(int bno) {
+		this.bno = bno;
 	}
 	public String getContent() {
 		return content;

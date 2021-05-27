@@ -59,22 +59,43 @@
 				</tr>
 			</table>
 			<div class="bottom">
-				
-				<form role="form" th:object=${BoardVo} th:action="@{/board/main}" method="POST">
-				<a href="/board/main">글목록</a> 
-				<a th:href="@{/board/modify(bno=${board.bno})}">글수정</a> 
-				<input type="submit" th:value="삭제" th:formaction="@{/board/delete/{bno}(bno=${board.bno})}"></form>
-				
+
+				<form role="form" th:object=${BoardVo} th:action="@{/board/main}"
+					method="POST">
+					<a href="/board/main">글목록</a> <a
+						th:href="@{/board/modify(bno=${board.bno})}">글수정</a> <input
+						type="submit" th:value="삭제"
+						th:formaction="@{/board/delete/{bno}(bno=${board.bno})}">
+				</form>
+
 				<hr>
 				댓글
-				
-	
-				
+				<td th:text="${board.title}"></td>
+
+               
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">작성자</span>
+					</div>
+					<input type="text" class="form-control" placeholder="이름을입력하세요"
+						aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+
+
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">내용</span>
+					</div>
+					<textarea class="form-control" aria-label="With textarea" placeholder="내용을작성하세요"></textarea>
+				</div>
 
 
 
-				
-				
+
+
+
+
+
 			</div>
 		</div>
 	</div>

@@ -4,8 +4,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.example.board.vo.BoardVo" alias="boardvo"/>
+		<typeAlias type="com.example.board.vo.CommentVo" alias="commentvo"/>
 	</typeAliases>
 	<mappers>
 		 <mapper resource="mybatis/mapper/board.xml" />
+		 <mapper resource="mybatis/mapper/comment.xml" />
 	</mappers>
 </configuration>

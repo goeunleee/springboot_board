@@ -1,25 +1,25 @@
 package com.example.board.repository;
 
 
-import com.example.board.vo.CommentVo;
+import com.example.board.vo.*;
 
 import org.apache.ibatis.session.SqlSession;
-
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+@Repository
 public class CommentDao {
-  
-	private SqlSession sqlSession;
+
+	 private SqlSession sqlSession;
 	
-	
-	public List<CommentVo> selectCommentList(int bno){
-		
-	   List<CommentVo> commentList = sqlSession.selectList("comment.selectCommentList",bno);
-	   return commentList;
-	}
-	
-	
+	 
+	    
+	    public CommentVo selectCommentByBoardNo(int bno) {
+
+	        CommentVo commentVo = sqlSession.selectOne("comment.selectCommentByBoardNo", bno);
+
+	        return commentVo;
+	    }
+
 }

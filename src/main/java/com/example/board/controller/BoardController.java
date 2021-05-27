@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.board.service.BoardService;
-import com.example.board.vo.BoardVo;
+import com.example.board.service.*;
+import com.example.board.vo.*;
+
 
 @Controller // 컨트롤러를 명시하는 어노테이션
 @RequestMapping("/board") // url 경로설정
@@ -18,7 +18,8 @@ public class BoardController {
 
 	// @Autowired
 	private BoardService boardService;
-
+    private CommentService commentService;
+    
 	public BoardController(BoardService boardService) {
 		this.boardService = boardService;
 	}
@@ -39,6 +40,13 @@ public class BoardController {
 	public String getBoard(Model model, int bno) {
 		BoardVo board = boardService.getBoardByBoardNo(bno);
 		model.addAttribute("board", board);
+		int postno = board.getBno();
+	    System.out.println(postno+"번호 게시글 상세페이지");
+	    
+		CommentVo comment = commentService.getCommentByBoardNo(postno);
+		//model.addAttribute("comment",comment);
+		
+		
 		return "views/board/detail";
 	}
 
