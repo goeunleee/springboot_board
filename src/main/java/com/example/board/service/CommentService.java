@@ -10,7 +10,8 @@ public class CommentService {
 	private CommentDao commentDao;
 	
 	public List<CommentVo> getCommentList(int bno){
-		return commentDao.selectCommentList(bno);
+		return commentDao.selectCommentList(bno); 
+		
 	}
 
 }
