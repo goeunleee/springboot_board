@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+
+	<select id="getBoardList" resultType="boardvo">
+	<![CDATA[
+		select * from board
+	]]>
+	</select>
+	
+	<select id="selectBoardByBoardNo" resultType="boardvo" parameterType="int">
+	<![CDATA[
+		select bno, title, contents, writer, rdate
+		from board
+		where bno = #{bno}
+	]]>
+	</select>
+	
+	
+    <insert id="insertBoard" parameterType="boardvo">
+		<![CDATA[
+		insert
+		into board (title, contents, writer, rdate)
+		values (#{title}, #{contents}, #{writer}, now())
+		]]>
+	</insert> 
+	
+	
+	<delete id="deleteBoardByBoardNo" parameterType="int">
+		<![CDATA[
+			delete
+			from board
+			where bno = #{bno};
+		]]>
+	</delete>
+
+	<update id="updateBoard" parameterType="boardvo">
+		<![CDATA[
+			update board
+			set title = #{title} , contents = #{contents}, rdate = now()
+			where bno= #{bno}
+		]]>
+	</update>
+	
+	
+	
+
+
+</mapper>
